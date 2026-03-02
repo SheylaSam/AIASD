@@ -116,6 +116,10 @@ Wir haben vier Use-Case-Ideen zur Auswahl für die Gruppe:
 
 ## Technischer Stack (Empfehlung für Option A)
 
+Wir haben zwei Architektur-Varianten zur Diskussion:
+
+### Variante 1: Klassisch (ohne n8n)
+
 ```
 Frontend (Browser)
       |
@@ -125,13 +129,41 @@ Backend API (FastAPI / Python)
 (Generierung)    (Nutzer, Quizze, Lernplaene)
 ```
 
-**Mögliche Aufgabenteilung (4 Personen):**
+Mehr Backend-Code, dafür alles an einem Ort.
+
+### Variante 2: Mit n8n (empfohlen)
+
+```
+Frontend (Browser)
+      |
+Backend API (FastAPI / Python)
+      |                    |
+ Datenbank (PostgreSQL)   n8n Workflow-Engine
+                           |
+                    1. PDF-Text extrahieren
+                    2. Claude API aufrufen
+                    3. Quiz + Lernplan parsen
+                    4. Ergebnis an Backend senden
+```
+
+n8n übernimmt den gesamten KI-Verarbeitungsteil visuell ohne viel Code. Das Backend bleibt schlank und kümmert sich nur um Auth, Daten und API.
+
+**Was ist n8n?**
+Ein open-source Workflow-Builder, bei dem man Bausteine (Nodes) visuell verbindet statt Code zu schreiben. n8n hat einen fertigen Anthropic-Node eingebaut, der die Claude API direkt ansprechen kann.
+
+**Warum Variante 2?**
+- Den Prompt anpassen: Node öffnen, Text ändern, fertig (kein Deploy nötig)
+- Weniger Backend-Code für die AI-Logik
+- Sheyla hat n8n bereits bei der Arbeit eingesetzt und kann die Gruppe einführen
+- Starkes Argument für die Abschlusspräsentation: Claude Code zum Entwickeln, n8n zum Orchestrieren
+
+**Mögliche Aufgabenteilung mit n8n:**
 | Person | Bereich |
 |---|---|
-| Sheyla | Backend API und Claude API Integration |
+| Sheyla | n8n Workflows und Claude API Integration |
 | Person 2 | Frontend |
-| Person 3 | Datenbank und Auth |
-| Person 4 | Testing, Deployment und Doku |
+| Person 3 | Backend API (FastAPI) und Datenbank |
+| Person 4 | Auth, Testing und Deployment |
 
 ---
 
