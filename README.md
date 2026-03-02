@@ -1,4 +1,4 @@
-# AIASD — AI-Assisted Software Development
+# AIASD: AI-Assisted Software Development
 
 > **Coding-Agent-Pitch: Claude Code**
 > FHNW · BSc Business Artificial Intelligence · 4. Semester · 2026
@@ -7,12 +7,12 @@
 
 ## Was ist das hier?
 
-Dieses Repo entstand als Teil eines **5-minütigen Pitches** über [Claude Code](https://claude.ai/code) im Kurs *AI-Assisted Software Development* (Prof. Dr. Andreas Martin, FHNW).
+Dieses Repo entstand als Teil eines **5-minütigen Pitches** über [Claude Code](https://claude.ai/code) im Kurs *AI-Assisted Software Development* (FHNW).
 
 Es enthält:
 - Die **Live-Demo**: Ein Memory-Spiel, das Claude Code aus einer simplen JSON-Datei generiert hat
 - Den **Inhalt** (`content.json`) mit 8 Begriffen aus dem AISD-Kurs
-- Das generierte **Memory-Spiel** (`memory.html`) — direkt im Browser spielbar
+- Das generierte **Memory-Spiel** (`memory.html`), direkt im Browser spielbar
 
 ---
 
@@ -32,12 +32,12 @@ open memory.html   # macOS
 Die Idee hinter der Demo:
 
 ```
-content.json  →  Claude Code  →  memory.html (spielbar)
-    ↑                                    ↑
+content.json  ->  Claude Code  ->  memory.html (spielbar)
+    |                                    |
 Lerninhalt                      Fertiges Lernspiel
 ```
 
-Derselbe `content.json` könnte auch für ein Quiz, Flashcards oder andere Lernformate genutzt werden — Claude Code generiert das jeweilige Format auf Anfrage.
+Derselbe `content.json` könnte auch für ein Quiz, Flashcards oder andere Lernformate genutzt werden. Claude Code generiert das jeweilige Format auf Anfrage.
 
 ---
 
@@ -51,14 +51,14 @@ Flip-Animation, Punktestand und Gewinn-Anzeige.
 
 ---
 
-## Claude Code — Kurzübersicht
+## Claude Code: Kurzübersicht
 
 | | |
 |---|---|
 | **Typ** | Agentic Coding CLI |
 | **Hersteller** | Anthropic |
 | **Modell** | Claude Sonnet 4.6 (empfohlen) |
-| **Plattform** | macOS · Linux · Windows |
+| **Plattform** | macOS, Linux, Windows |
 | **Pricing** | API Pay-per-use / Claude Pro ($20/Mt.) |
 | **Open Source** | Teilweise (SDKs ja, Modelle nein) |
 

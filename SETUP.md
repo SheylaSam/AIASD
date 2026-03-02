@@ -1,6 +1,6 @@
 # Setup-Guide für Teammitglieder
 
-> Damit ihr auf dem gleichen Stand seid wie Sheyla — Claude Code installieren, Repo klonen, Demo ausprobieren.
+> Damit ihr auf dem gleichen Stand seid wie Sheyla: Claude Code installieren, Repo klonen, Demo ausprobieren.
 
 ---
 
@@ -8,14 +8,14 @@
 
 | Tool | Zweck |
 |---|---|
-| **Git** | Repo klonen & gemeinsam arbeiten |
+| **Git** | Repo klonen und gemeinsam arbeiten |
 | **Node.js** | Voraussetzung für Claude Code |
 | **Claude Code** | Das CLI-Tool, das wir pitchen |
 | **Anthropic-Account** | Für API-Zugang / Abo |
 
 ---
 
-## Schritt 1 — Repo klonen
+## Schritt 1: Repo klonen
 
 ```bash
 git clone https://github.com/SheylaSam/AIASD.git
@@ -24,7 +24,7 @@ cd AIASD
 
 ---
 
-## Schritt 2 — Node.js installieren (falls nicht vorhanden)
+## Schritt 2: Node.js installieren (falls nicht vorhanden)
 
 Claude Code benötigt Node.js 18 oder neuer.
 
@@ -34,13 +34,13 @@ node --version   # sollte v18 oder höher zeigen
 ```
 
 **Falls nicht installiert:**
-- macOS: [nodejs.org/de](https://nodejs.org/de) → "LTS" herunterladen und installieren
+- macOS: [nodejs.org/de](https://nodejs.org/de) > "LTS" herunterladen und installieren
 - Windows: Gleiche Seite, Windows-Installer
 - Oder via Homebrew (macOS): `brew install node`
 
 ---
 
-## Schritt 3 — Claude Code installieren
+## Schritt 3: Claude Code installieren
 
 ```bash
 npm install -g @anthropic-ai/claude-code
@@ -53,32 +53,32 @@ claude --version
 
 ---
 
-## Schritt 4 — Anthropic-Account & API-Zugang
+## Schritt 4: Anthropic-Account und API-Zugang
 
-### Option A — Claude Pro Abo (empfohlen, einfacher)
+### Option A: Claude Pro Abo (empfohlen, einfacher)
 1. Auf [claude.ai](https://claude.ai) anmelden / registrieren
 2. Auf **Claude Pro** upgraden ($20/Monat, jederzeit kündbar)
-3. Claude Code ist dann inklusive — kein separater API-Key nötig
+3. Claude Code ist dann inklusive, kein separater API-Key nötig
 
-### Option B — API-Key (günstiger bei wenig Nutzung)
+### Option B: API-Key (günstiger bei wenig Nutzung)
 1. Account erstellen auf [console.anthropic.com](https://console.anthropic.com)
-2. Unter **API Keys** → "Create Key" einen neuen Key erstellen
-3. Etwas Guthaben aufladen (min. $5 — reicht für viele Wochen)
+2. Unter **API Keys** > "Create Key" einen neuen Key erstellen
+3. Etwas Guthaben aufladen (min. $5, reicht für viele Wochen)
 4. Key als Umgebungsvariable setzen:
 
 ```bash
-# macOS / Linux — in ~/.zshrc oder ~/.bashrc einfügen:
+# macOS / Linux, in ~/.zshrc oder ~/.bashrc einfügen:
 export ANTHROPIC_API_KEY="sk-ant-..."
 
 # Windows (PowerShell):
 $env:ANTHROPIC_API_KEY="sk-ant-..."
 ```
 
-> **Tipp:** Für die Demo und den Pitch reicht das Minimum-Guthaben locker — die Demo verbraucht nur wenige Cent.
+> **Tipp:** Für die Demo und den Pitch reicht das Minimum-Guthaben locker, die Demo verbraucht nur wenige Cent.
 
 ---
 
-## Schritt 5 — Claude Code starten
+## Schritt 5: Claude Code starten
 
 ```bash
 cd AIASD
@@ -111,11 +111,11 @@ start memory.html     # Windows
 
 ```
 AIASD/
-├── content.json          ← Lerninhalt (8 AISD-Begriffe, hier anpassen!)
-├── memory.html           ← Fertig generiertes Memory-Spiel (Backup)
-├── Claude_Code_Pitch.pptx ← Präsentation für den Pitch
-├── README.md             ← Projektübersicht
-└── SETUP.md              ← Diese Datei
+├── content.json           <- Lerninhalt (8 AISD-Begriffe, hier anpassen!)
+├── memory.html            <- Fertig generiertes Memory-Spiel (Backup)
+├── Claude_Code_Pitch.pptx <- Präsentation für den Pitch
+├── README.md              <- Projektübersicht
+└── SETUP.md               <- Diese Datei
 ```
 
 ---
