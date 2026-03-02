@@ -55,8 +55,6 @@ claude --version
 
 ## Schritt 4 — Anthropic-Account & API-Zugang
 
-Sheyla nutzt Claude Code über den Geschäfts-Account von hazu. Für eigene Nutzung gibt es zwei Optionen:
-
 ### Option A — Claude Pro Abo (empfohlen, einfacher)
 1. Auf [claude.ai](https://claude.ai) anmelden / registrieren
 2. Auf **Claude Pro** upgraden ($20/Monat, jederzeit kündbar)
