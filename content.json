@@ -1,0 +1,38 @@
+{
+  "title": "AI-Assisted Software Development",
+  "description": "Memory-Spiel: Begriffe aus dem AISD-Kurs",
+  "pairs": [
+    {
+      "term": "Claude Code",
+      "definition": "Agentic Coding CLI von Anthropic"
+    },
+    {
+      "term": "LLM",
+      "definition": "Large Language Model"
+    },
+    {
+      "term": "Agentic Coding",
+      "definition": "KI führt mehrstufige Tasks selbstständig aus"
+    },
+    {
+      "term": "Prompt Engineering",
+      "definition": "Optimierung von Anweisungen an ein KI-Modell"
+    },
+    {
+      "term": "RAG",
+      "definition": "Retrieval Augmented Generation"
+    },
+    {
+      "term": "Fine-tuning",
+      "definition": "Anpassen eines Modells mit eigenen Daten"
+    },
+    {
+      "term": "Token",
+      "definition": "Grundeinheit der Sprachverarbeitung"
+    },
+    {
+      "term": "MCP",
+      "definition": "Model Context Protocol"
+    }
+  ]
+}
