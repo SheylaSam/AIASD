@@ -1,75 +1,102 @@
-# AIASD: AI-Assisted Software Development
+# AIASD: Kollaborative Lernplattform
 
-> **Coding-Agent-Pitch: Claude Code**
 > FHNW · BSc Business Artificial Intelligence · 4. Semester · 2026
+> Kurs: AI-Assisted Software Development (Prof. Dr. Andreas Martin)
 
 ---
 
-## Was ist das hier?
+## Projektbeschreibung
 
-Dieses Repo entstand als Teil eines **5-minütigen Pitches** über [Claude Code](https://claude.ai/code) im Kurs *AI-Assisted Software Development* (FHNW).
-
-Es enthält:
-- Die **Live-Demo**: Ein Memory-Spiel, das Claude Code aus einer simplen JSON-Datei generiert hat
-- Den **Inhalt** (`content.json`) mit 8 Begriffen aus dem AISD-Kurs
-- Das generierte **Memory-Spiel** (`memory.html`), direkt im Browser spielbar
+Eine Web-App, bei der Nutzerinnen Lernmaterial (PDF, Folien) hochladen können. Die KI erstellt daraus automatisch einen Lernplan und Quizzes. Gruppen können gemeinsam in einem LernRaum lernen und den Fortschritt verfolgen.
 
 ---
 
-## Demo selbst ausprobieren
+## Tech Stack
+
+| Schicht | Technologie |
+|---|---|
+| Frontend | HTML/JS oder React |
+| Backend API | FastAPI (Python) |
+| Workflow-Engine | n8n (KI-Verarbeitung) |
+| Datenbank | SQLite (Dev) / PostgreSQL (Prod) |
+| KI | Claude API via n8n |
+| Deployment | Docker + Render/Railway |
+
+---
+
+## Architektur
+
+Clean Architecture — Abhängigkeiten zeigen immer nach innen:
+
+```
+Infrastructure  (FastAPI, SQLAlchemy, n8n)
+    ↓
+Interfaces      (API-Routes, Schemas)
+    ↓
+Application     (Use Cases, Repository-Ports)
+    ↓
+Domain          (User, Document, Quiz, LernRaum)
+```
+
+Details: [docs/CLEAN_ARCH.md](docs/CLEAN_ARCH.md)
+
+---
+
+## Schnellstart
 
 ```bash
 git clone https://github.com/SheylaSam/AIASD.git
-cd AIASD
-open memory.html   # macOS
-# oder: start memory.html (Windows)
+cd AIASD/backend
+pyenv local 3.10.13
+python3 -m pip install -r requirements.txt
+PYTHONPATH=. python3 -m uvicorn main:app --reload
 ```
+
+API läuft auf **http://localhost:8000** · Dokumentation: **http://localhost:8000/docs**
+
+Vollständige Anleitung: [SETUP.md](SETUP.md)
 
 ---
 
-## Das Konzept: Content-First
+## Tests
 
-Die Idee hinter der Demo:
-
-```
-content.json  ->  Claude Code  ->  memory.html (spielbar)
-    |                                    |
-Lerninhalt                      Fertiges Lernspiel
+```bash
+cd backend
+python3 -m pytest
 ```
 
-Derselbe `content.json` könnte auch für ein Quiz, Flashcards oder andere Lernformate genutzt werden. Claude Code generiert das jeweilige Format auf Anfrage.
+16 automatische Tests (Unit + Integration). Alle müssen grün sein vor einem Merge.
 
 ---
 
-## Live-Demo Prompt
+## Team
 
-```
-Lies content.json und erstelle daraus ein spielbares Memory-Spiel
-als memory.html. Schönes modernes Design, 4x4 Grid, Karten mit
-Flip-Animation, Punktestand und Gewinn-Anzeige.
-```
-
----
-
-## Claude Code: Kurzübersicht
-
-| | |
+| Person | Bereich |
 |---|---|
-| **Typ** | Agentic Coding CLI |
-| **Hersteller** | Anthropic |
-| **Modell** | Claude Sonnet 4.6 (empfohlen) |
-| **Plattform** | macOS, Linux, Windows |
-| **Pricing** | API Pay-per-use / Claude Pro ($20/Mt.) |
-| **Open Source** | Teilweise (SDKs ja, Modelle nein) |
+| Sheyla | n8n Workflows und Claude API Integration |
+| Person 2 | Frontend |
+| Person 3 | Backend API (FastAPI) und Datenbank |
+| Person 4 | Auth, Testing und Deployment |
 
 ---
 
-## Mitarbeiten
+## Sprints
 
-Alle Gruppenmitglieder können direkt Änderungen vorschlagen:
-- `content.json` anpassen (andere Themen, mehr Paare)
-- `memory.html` weiterentwickeln (neues Design, neue Features)
-- Neue Spieltypen hinzufügen (Quiz, Flashcards, ...)
+| Sprint | Thema | Deadline |
+|---|---|---|
+| Sprint 1 | Setup und Grundstruktur | 16. März |
+| Sprint 2 | Upload und KI-Generierung | 30. März |
+| Sprint 3 | Lernraum und Gruppen | 13. April |
+| Sprint 4 | Polish und Deployment | 27. April |
+
+---
+
+## Links
+
+- [Scrum-Board](https://github.com/users/SheylaSam/projects/3)
+- [Issues](https://github.com/SheylaSam/AIASD/issues)
+- [AGENTS.md](AGENTS.md) — Instruktionen für AI-Coding-Tools
+- [docs/](docs/) — Architektur, TDD-Regeln, Workflow-Phasen
 
 ---
 
