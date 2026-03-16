@@ -7,7 +7,7 @@
 
 ## Projektbeschreibung
 
-Eine Web-App, bei der Nutzerinnen Lernmaterial (PDF, Folien) hochladen können. Die KI erstellt daraus automatisch einen Lernplan und Quizzes. Gruppen können gemeinsam in einem LernRaum lernen und den Fortschritt verfolgen.
+Eine Web-App, bei der Nutzer:innen Lernmaterial (PDF, Folien) hochladen können. Die KI erstellt daraus automatisch einen Lernplan und Quizzes. Gruppen können gemeinsam in einem LernRaum lernen und den Fortschritt verfolgen.
 
 ---
 
@@ -74,9 +74,9 @@ python3 -m pytest
 | Person | Bereich |
 |---|---|
 | Sheyla | n8n Workflows und Claude API Integration |
-| Person 2 | Frontend |
-| Person 3 | Backend API (FastAPI) und Datenbank |
-| Person 4 | Auth, Testing und Deployment |
+| Andrea | Frontend |
+| Fabia | Backend API (FastAPI) und Datenbank |
+| Nicolas | Auth, Testing und Deployment |
 
 ---
 

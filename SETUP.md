@@ -1,7 +1,5 @@
 # Setup-Guide für Teammitglieder
 
-> Damit ihr auf dem gleichen Stand seid wie Sheyla: Claude Code installieren, Repo klonen, Demo ausprobieren.
-
 ---
 
 ## Übersicht: Was ihr braucht
@@ -124,29 +122,44 @@ AIASD/
 
 ## Backend starten (FastAPI)
 
-### Voraussetzung: Python 3.10 via pyenv
+### Voraussetzung: Python 3.10
 
-**pyenv installieren (falls nicht vorhanden):**
+**macOS:**
 ```bash
 brew install pyenv
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(pyenv init -)"' >> ~/.zshrc
 source ~/.zshrc
+pyenv install 3.10.13
 ```
 
-**Python 3.10.13 installieren:**
+**Windows:**
+Python 3.10 direkt von [python.org](https://www.python.org/downloads/) herunterladen und installieren.
+Bei der Installation "Add Python to PATH" aktivieren.
+
+**Prüfen ob Python vorhanden:**
 ```bash
-pyenv install 3.10.13
+python3 --version   # macOS/Linux
+python --version    # Windows
 ```
 
 ### Backend starten
 
+**macOS / Linux:**
 ```bash
 cd backend
-pyenv local 3.10.13          # Python-Version setzen (einmalig pro Ordner)
-python3 -m pip install -r requirements.txt   # Pakete installieren (einmalig)
+pyenv local 3.10.13                                      # einmalig
+python3 -m pip install -r requirements.txt               # einmalig
 PYTHONPATH=. python3 -m uvicorn main:app --reload
+```
+
+**Windows (PowerShell):**
+```powershell
+cd backend
+pip install -r requirements.txt                          # einmalig
+$env:PYTHONPATH="."
+python -m uvicorn main:app --reload
 ```
 
 API läuft dann auf: **http://localhost:8000**
@@ -154,9 +167,16 @@ Interaktive Dokumentation: **http://localhost:8000/docs**
 
 ### Tests ausführen
 
+**macOS / Linux:**
 ```bash
 cd backend
 python3 -m pytest
+```
+
+**Windows (PowerShell):**
+```powershell
+cd backend
+python -m pytest
 ```
 
 Alle 16 Tests laufen automatisch durch und zeigen ob alles funktioniert.
@@ -178,8 +198,13 @@ Erwartete Ausgabe wenn alles funktioniert:
 ### Umgebungsvariablen (optional)
 
 Für PostgreSQL (Prod) statt SQLite (Dev):
+
 ```bash
+# macOS / Linux:
 export DATABASE_URL="postgresql://user:password@localhost/aiasd"
+
+# Windows (PowerShell):
+$env:DATABASE_URL="postgresql://user:password@localhost/aiasd"
 ```
 
 Ohne diese Variable wird automatisch SQLite (`app.db`) verwendet.
@@ -199,4 +224,4 @@ Oder einfach Sheyla fragen :)
 
 ---
 
-*Viel Erfolg beim Pitch! · FHNW AISD 2026*
+*FHNW · BSc Business Artificial Intelligence · AISD 2026*
