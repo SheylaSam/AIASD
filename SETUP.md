@@ -120,6 +120,72 @@ AIASD/
 
 ---
 
+---
+
+## Backend starten (FastAPI)
+
+### Voraussetzung: Python 3.10 via pyenv
+
+**pyenv installieren (falls nicht vorhanden):**
+```bash
+brew install pyenv
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+**Python 3.10.13 installieren:**
+```bash
+pyenv install 3.10.13
+```
+
+### Backend starten
+
+```bash
+cd backend
+pyenv local 3.10.13          # Python-Version setzen (einmalig pro Ordner)
+python3 -m pip install -r requirements.txt   # Pakete installieren (einmalig)
+PYTHONPATH=. python3 -m uvicorn main:app --reload
+```
+
+API läuft dann auf: **http://localhost:8000**
+Interaktive Dokumentation: **http://localhost:8000/docs**
+
+### Tests ausführen
+
+```bash
+cd backend
+python3 -m pytest
+```
+
+Alle 16 Tests laufen automatisch durch und zeigen ob alles funktioniert.
+
+**Was getestet wird:**
+
+| Test-Datei | Was wird geprüft |
+|---|---|
+| `test_domain_user.py` | User erstellen, leerer Name wirft Fehler, ungültige Email wirft Fehler |
+| `test_domain_quiz.py` | QuizFrage erstellen, zu wenige Antworten wirft Fehler, ungültiger Index wirft Fehler |
+| `test_user_service.py` | User registrieren, doppelte Email wirft Fehler, User per ID abrufen, nicht-existente ID wirft Fehler, alle Users auflisten |
+| `test_user_repository.py` | User in DB speichern und laden, per Email finden, nicht-existente ID gibt None, alle Users aus DB laden |
+
+Erwartete Ausgabe wenn alles funktioniert:
+```
+16 passed in 0.19s
+```
+
+### Umgebungsvariablen (optional)
+
+Für PostgreSQL (Prod) statt SQLite (Dev):
+```bash
+export DATABASE_URL="postgresql://user:password@localhost/aiasd"
+```
+
+Ohne diese Variable wird automatisch SQLite (`app.db`) verwendet.
+
+---
+
 ## Probleme?
 
 | Problem | Lösung |
